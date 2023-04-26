@@ -20,7 +20,6 @@ public class Runner : IRunner
 
     public async void ProcessRequest()
     {
-        string? method = Environment.GetEnvironmentVariable("METHOD");
         var updateUrLs = await _ddnsUpdater.GetUpdateUrLs(_request.Domains);
         while (updateUrLs == null || updateUrLs.Count == 0 )
         {

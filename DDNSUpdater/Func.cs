@@ -4,8 +4,15 @@ using DDNSUpdater.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
-TextReader inputJson = Console.In;
-var input = JsonConvert.DeserializeObject<Request>(inputJson.ReadToEnd());
+string inputJson = "";
+#if DEBUG
+    inputJson = Console.In.ReadToEnd();
+#else
+    inputJson = JsonConvert.Ser
+    
+#endif
+
+var input = JsonConvert.DeserializeObject<Request>(inputJson);
 
 var builder = new ServiceCollection();
 
