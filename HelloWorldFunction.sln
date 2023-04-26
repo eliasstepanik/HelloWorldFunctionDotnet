@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "HelloWorld\HelloWorld.csproj", "{03217469-6F37-4CD6-BE80-A744C629A7C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDNSUpdater", "DDNSUpdater\DDNSUpdater.csproj", "{03217469-6F37-4CD6-BE80-A744C629A7C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
