@@ -40,7 +40,7 @@ public class DDNSUpdater : IDDNSUpdater
                 
                 var response = await client.ExecuteAsync(request);
                 
-                Console.WriteLine(response);
+                Console.WriteLine(response.ErrorMessage);
             }
             catch (ApiException e)
             {
@@ -92,7 +92,6 @@ public class DDNSUpdater : IDDNSUpdater
             {
                 string message = error.Message;
                 Console.WriteLine(message);
-                throw;
             }
             
             

@@ -40,6 +40,7 @@ namespace DDNSUpdater.APIs.Ionos.ApiClient {
             ApiClientBuilder.RegisterDefaultDeserializer<TextParseNodeFactory>();
             ApiClientBuilder.RegisterDefaultDeserializer<FormParseNodeFactory>();
             if (string.IsNullOrEmpty(RequestAdapter.BaseUrl)) {
+                
                 RequestAdapter.BaseUrl = "https://api.hosting.ionos.com/dns";
             }
             PathParameters.TryAdd("baseurl", RequestAdapter.BaseUrl);

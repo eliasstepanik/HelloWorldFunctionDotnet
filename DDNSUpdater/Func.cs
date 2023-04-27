@@ -5,11 +5,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
 string inputJson = "";
-#if DEBUG
+#if !DEBUG
     inputJson = Console.In.ReadToEnd();
 #else
-    inputJson = JsonConvert.Ser
-    
+    inputJson = JsonConvert.SerializeObject(new Request
+    {
+        Domains = new List<Domain>()
+        {
+            new Domain("test.sailehd.systems","4dc281058e9648919a988315c84058fa.z0eKvfJSuUpeU-2W-quUCsM_6aSshAX8tdPrJ1NQUBtcaImOtoQCk82nT4kDWzBjj2l2PMo1vGXCc6vGW9bKHA")
+        }
+    });
+
 #endif
 
 var input = JsonConvert.DeserializeObject<Request>(inputJson);
