@@ -20,10 +20,10 @@ public class Runner : IRunner
 
     public async void ProcessRequest()
     {
-        var updateUrLs = await _ddnsUpdater.GetUpdateUrLs(_request.Domains);
+        var updateUrLs = _ddnsUpdater.GetUpdateUrLs(_request.Domains);
         while (updateUrLs == null || updateUrLs.Count == 0 )
         {
-            updateUrLs = await _ddnsUpdater.GetUpdateUrLs(_request.Domains);
+            updateUrLs = _ddnsUpdater.GetUpdateUrLs(_request.Domains);
         }
 
         for (int j = 0; j < 3; j++)

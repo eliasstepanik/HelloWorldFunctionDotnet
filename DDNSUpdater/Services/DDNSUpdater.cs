@@ -51,7 +51,7 @@ public class DDNSUpdater : IDDNSUpdater
 
     }
 
-    public async Task<List<string>> GetUpdateUrLs(List<Domain> domains)
+    public List<string> GetUpdateUrLs(List<Domain> domains)
     {
         List<string> updateUrLs = new List<string>();
         if (updateUrLs == null) throw new ArgumentNullException(nameof(updateUrLs));
@@ -79,13 +79,13 @@ public class DDNSUpdater : IDDNSUpdater
                     Description = "My DynamicDns"
                 };
 
-                var reply = await _client.V1.Dyndns.PostAsync(request, configuration =>
+                var reply = _client.V1.Dyndns.PostAsync(request, configuration =>
                 {
                     configuration.Headers = new RequestHeaders()
                     {
                         { "X-API-Key", key }
                     };
-                });
+                }).Result;
                 if (reply is { UpdateUrl: { } }) updateUrLs.Add(reply.UpdateUrl);
             }
             catch (ApiException error)
